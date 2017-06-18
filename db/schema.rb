@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618060729) do
+ActiveRecord::Schema.define(version: 20170618074308) do
 
   create_table "article_categories", force: :cascade do |t|
     t.integer "article_id", null: false
@@ -32,13 +32,15 @@ ActiveRecord::Schema.define(version: 20170618060729) do
     t.integer "number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "meeting_id", null: false
     t.index ["author_id"], name: "index_articles_on_author_id"
-    t.index [nil], name: "index_articles_on_author"
+    t.index ["meeting_id"], name: "index_articles_on_meeting_id"
   end
 
   create_table "blocks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", null: false
   end
 
   create_table "categories", force: :cascade do |t|
